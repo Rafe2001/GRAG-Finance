@@ -1,10 +1,12 @@
 neo4j
 langchain
+flask
 faiss-cpu
 groq
 langchain_groq
 langchain_huggingface
 langchain_community
+langchain-google-genai
 fastapi
 uvicorn
 requests
@@ -12,3 +14,4 @@ spacy
 pandas
 transformers
 python-dotenv
+gunicorn

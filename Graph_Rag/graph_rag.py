@@ -6,10 +6,12 @@ from typing import List, Dict, Optional
 import numpy as np
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import GraphQAChain
 import os
 from groq import Groq
+from dotenv import load_dotenv
 
 
 logging.basicConfig(
@@ -17,10 +19,13 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+load_dotenv()
+
 neo4j_uri = "bolt://44.202.210.236:7687"
 neo4j_user = "neo4j"
 neo4j_password = "sisters-car-recipients"
 groq_api_key = "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"
+google_api_key = os.getenv("GOOGLE_API_KEY")
 
 
 class KnowledgeGraph:
@@ -161,8 +166,14 @@ class GraphRAG:
         self.graph = KnowledgeGraph(neo4j_uri, neo4j_user, neo4j_password)
 
         # Initialize LangChain components
+        '''
         self.embeddings = HuggingFaceEmbeddings(
             model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )'''
+        
+        self.embeddings = GoogleGenerativeAIEmbeddings(
+            model="models/embedding-001",
+            api_key = google_api_key
         )
 
         # Initialize Groq client

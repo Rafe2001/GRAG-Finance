@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import pandas as pd
 import os
 
-
 app = Flask(__name__)
 
 load_dotenv()
@@ -14,19 +13,18 @@ load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-
+# Function to get GraphRAG instance
 @lru_cache(maxsize=1)
 def get_graph_rag():
-    
-    try:
-        
+    try:  
         graph_rag = GraphRAG(
-            neo4j_uri = os.getenv("NEO4J_URI"),
-            neo4j_user = os.getenv("NEO4J_USER"),
-            neo4j_password = os.getenv("NEO4J_PASSWORD")
+            neo4j_uri=os.getenv("NEO4J_URI"),
+            neo4j_user=os.getenv("NEO4J_USER"),
+            neo4j_password=os.getenv("NEO4J_PASSWORD")
         )
         
-        with open('data/processed_news.json', 'r') as f:
+        # Use os.path.join for cross-platform path compatibility
+        with open(os.path.join('data', 'processed_news.json'), 'r') as f:
             processed_data = pd.read_json(f)
             
         graph_rag.graph.populate_graph(processed_data)
@@ -36,7 +34,8 @@ def get_graph_rag():
     except Exception as e:
         logging.error(f"Error initializing GraphRAG: {str(e)}")
         raise
-    
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -50,6 +49,7 @@ def index():
     except Exception as e:
         logging.error(f"Error processing request: {str(e)}")
         return jsonify({"error": str(e)}), 500
+
 
 @app.teardown_appcontext
 def cleanup(error):
