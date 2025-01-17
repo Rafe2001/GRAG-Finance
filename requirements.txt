@@ -8,7 +8,6 @@ langchain_huggingface
 langchain_community
 uvicorn
 requests
-os
 spacy
 pandas
 transformers
