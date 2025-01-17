@@ -12,3 +12,4 @@ spacy
 pandas
 transformers
 python-dotenv
+gunicorn
