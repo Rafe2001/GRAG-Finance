@@ -1,13 +1,14 @@
 neo4j
+flask
 langchain
 faiss-cpu
 groq
 langchain_groq
 langchain_huggingface
 langchain_community
-fastapi
 uvicorn
 requests
+os
 spacy
 pandas
 transformers
