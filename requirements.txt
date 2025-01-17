@@ -5,6 +5,7 @@ faiss-cpu
 groq
 langchain_groq
 langchain_huggingface
+langchain-google-genai
 langchain_community
 uvicorn
 requests
