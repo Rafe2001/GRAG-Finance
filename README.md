@@ -51,13 +51,13 @@ The project is divided into three phases:
 ## Usage
 
 1.  **Data Ingestion:**
-bash python data_collection.py
+bash python data_ingestion.py
  
 2.  **NLP Processing:**
 bash python nlp_pipeline.py
 
 3.  **Graph RAG Pipeline:**
-bash python graph_rag_pipeline.py
+bash python graph_rag.py
 
 
 ## Contributing
@@ -67,7 +67,3 @@ Feel free to contribute to the project by:
 -   Reporting bugs or suggesting improvements.
 -   Adding new features or enhancing existing ones.
 -   Improving documentation or testing.
-
-## License
-
-[Specify your project's license here]
