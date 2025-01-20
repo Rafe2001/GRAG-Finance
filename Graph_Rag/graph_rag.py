@@ -21,10 +21,17 @@ logging.basicConfig(
 
 load_dotenv()
 
+<<<<<<< HEAD
 neo4j_uri = "bolt://44.202.210.236:7687"
 neo4j_user = "neo4j"
 neo4j_password = "sisters-car-recipients"
 groq_api_key = "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"
+=======
+neo4j_uri = os.getenv("NEO4J_URI")
+neo4j_user = "neo4j"
+neo4j_password = "sisters-car-recipients"          
+groq_api_key = os.getenv("GROQ_API_KEY")
+>>>>>>> d3b6699804f6d898a9b0f980f7a24b898f5b992b
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
 
@@ -321,4 +328,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 

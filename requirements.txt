@@ -1,17 +1,26 @@
 neo4j
+flask
 langchain
 flask
 faiss-cpu
 groq
 langchain_groq
 langchain_huggingface
+langchain-google-genai
 langchain_community
+<<<<<<< HEAD
 langchain-google-genai
 fastapi
+=======
+>>>>>>> d3b6699804f6d898a9b0f980f7a24b898f5b992b
 uvicorn
 requests
 spacy
 pandas
 transformers
 python-dotenv
+<<<<<<< HEAD
 gunicorn
+=======
+gunicorn
+>>>>>>> d3b6699804f6d898a9b0f980f7a24b898f5b992b
