@@ -8,7 +8,10 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-CORS(app)  # Add CORS to allow requests from React frontend
+CORS(app, origins=[
+    "https://YOUR-FRONTEND-CODESPACE-URL-5173.preview.app.github.dev",
+    "http://localhost:5173"
+]) 
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO)
